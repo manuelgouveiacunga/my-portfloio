@@ -31,7 +31,6 @@ const projects = [
     },
 ];
 
-// Função para carregar os projetos
 function loadProjects() {
     const container = document.getElementById('projectsContainer');
     projects.forEach(project => {
@@ -56,14 +55,14 @@ function loadProjects() {
     });
 }
 
-// Manipulação do formulário de contato
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     alert('Mensagem enviada com sucesso!');
     this.reset();
 });
 
-// Botão voltar ao topo
+
 const backToTop = document.getElementById('back-to-top');
 
 function handleScroll() {
@@ -81,7 +80,7 @@ function scrollToTop() {
     });
 }
 
-// Smooth scroll para links internos
+
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -93,10 +92,11 @@ function initSmoothScroll() {
     });
 }
 
-// Event Listeners
 window.addEventListener('scroll', handleScroll);
 backToTop.addEventListener('click', scrollToTop);
 window.addEventListener('load', () => {
     loadProjects();
     initSmoothScroll();
 });
+
+document.getElementById("ano").textContent = new Date().getFullYear();

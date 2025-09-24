@@ -1,6 +1,5 @@
-/* Hero Section */
 .hero-section {
-    background: url('https://www.freecodecamp.org/portuguese/news/content/images/size/w2000/2022/01/html-examples.jpeg');
+    background-color: #2b2929ff;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -24,8 +23,6 @@
     position: relative;
     z-index: 2;
 }
-
-/* Project Cards */
 .project-card {
     transition: transform 0.3s ease;
     box-shadow: 0 4px 6px rgba(159, 41, 41, 0.1);
@@ -36,7 +33,6 @@
     box-shadow: 0 10px 15px rgba(0,0,0,0.2);
 }
 
-/* Skills */
 .skill-badge {
     background-color: #007bff;
     color: white;
@@ -59,7 +55,6 @@
     color: #0056b3;
 }
 
-/* Back to Top Button */
 #back-to-top {
     position: fixed;
     bottom: 20px;
@@ -73,9 +68,8 @@
     opacity: 1;
 }
 
-/* Form Styling */
 .form-control {
-    border-radius: 0;
+    border-radius: 12px;
     border: 1px solid #ddd;
 }
 
@@ -84,7 +78,6 @@
     border-color: #007bff;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero-section {
         height: 80vh;
@@ -101,4 +94,13 @@
     .contact-icon {
         font-size: 1.5rem;
     }
+}
+
+.nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
 }
