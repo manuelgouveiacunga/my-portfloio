@@ -1,26 +1,34 @@
-// Dados dos projetos
 const projects = [
     {
-        title: "Projeto 1",
-        description: "Descrição do projeto 1",
-        image: "img/background-01.jpeg",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        link: "#"
+        title: "MEU PORTFÓLIO",
+        description: "Aplicação web para exibir meus projetos e habilidades.",
+        technologies: ["HTML", "CSS", "JavaScript", "PHP"],
+        link: "https://github.com/manuelgouveiacunga/my-portfloio"
     },
     {
-        title: "Projeto 2",
-        description: "Descrição do projeto 2",
-        image: "img/background-01.jpeg",
-        technologies: ["Bootstrap", "jQuery"],
-        link: "#"
+        title: "GESTÃO DE TAREFAS",
+        description: "Aplicação web para gerenciar tarefas diárias.",
+        technologies: ["HTML", "CSS", "JavaScript", "React"],
+        link: "https://github.com/manuelgouveiacunga/lista-todos"
     },
     {
-        title: "Projeto 3",
-        description: "Descrição do projeto 3",
-        image: "img/background-01.jpeg",
-        technologies: ["React", "Node.js"],
-        link: "#"
-    }
+        title: "CONTROLO DE FINANÇAS",
+        description: "Aplicação web para controlar despesas e receitas.",
+        technologies: ["HTML", "TailwindCss", "JavaScript", "React"],
+        link: "https://github.com/manuelgouveiacunga/finance-control"
+    },
+    {
+        title: "PERGUNTAS FREQUENTES",
+        description: "Aplicação web para exibir perguntas frequentes.",
+        technologies: ["React", "TailwindCss", "JavaScript"],
+        link: "https://github.com/manuelgouveiacunga/faqs_swiftdrop"
+    },
+    {
+        title: "DASHBOARD ADMIN",
+        description: "Aplicação web para administração de usuários e conteúdo.",
+        technologies: ["React", "Next.js", "JavaScript"],
+        link: "https://github.com/manuelgouveiacunga/nextjs-dashboard"
+    },
 ];
 
 // Função para carregar os projetos

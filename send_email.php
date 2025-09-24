@@ -1,31 +1,44 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'libs/PHPMailer/src/Exception.php';
+require 'libs/PHPMailer/src/PHPMailer.php';
+require 'libs/PHPMailer/src/SMTP.php';
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = htmlspecialchars(trim($_POST['name']));
     $email = htmlspecialchars(trim($_POST['email']));
     $message = htmlspecialchars(trim($_POST['message']));
 
-    // Seu email
-    $to = "manuelgouveiacunga18@outlook.com";
+    $mail = new PHPMailer(true);
 
-    // Assunto do email
-    $subject = "Nova mensagem de contato de $name";
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = getenv('SMTP_USER'); 
+        $mail->Password = getenv('SMTP_PASS'); 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
 
-    // Cabeçalhos do email
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
+        $mail->setFrom($email, $name);
+        $mail->addAddress(getenv('SMTP_TO')); 
 
-    // Corpo do email
-    $email_body = "Você recebeu uma nova mensagem de contato:\n\n";
-    $email_body .= "Nome: $name\n";
-    $email_body .= "Email: $email\n\n";
-    $email_body .= "Mensagem:\n$message\n";
+        $mail->isHTML(true);
+        $mail->Subject = "Nova mensagem de contato de $name";
+        $mail->Body = "
+            <h3>Nova mensagem recebida:</h3>
+            <p><strong>Nome:</strong> $name</p>
+            <p><strong>Email:</strong> $email</p>
+            <p><strong>Mensagem:</strong><br>$message</p>
+        ";
+        $mail->AltBody = "Nome: $name\nEmail: $email\nMensagem:\n$message";
 
-    // Enviar o email
-    if (mail($to, $subject, $email_body, $headers)) {
+        $mail->send();
         echo "<script>alert('Mensagem enviada com sucesso!'); window.location.href = 'index.html';</script>";
-    } else {
-        echo "<script>alert('Erro ao enviar mensagem. Tente novamente.'); window.location.href = 'index.html';</script>";
+    } catch (Exception $e) {
+        echo "<script>alert('Erro ao enviar: {$mail->ErrorInfo}'); window.location.href = 'index.html';</script>";
     }
 } else {
     echo "<script>alert('Acesso inválido.'); window.location.href = 'index.html';</script>";
