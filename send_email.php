@@ -18,12 +18,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = getenv('SMTP_USER'); 
+<<<<<<< HEAD
         $mail->Password = getenv('SMTP_PASS'); 
+=======
+        $mail->Password = getenv('SMTP_PASS');
+>>>>>>> 13b195f1cb3b8fe04d67f7e02ac356ed636c7468
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         $mail->setFrom($email, $name);
+<<<<<<< HEAD
         $mail->addAddress(getenv('SMTP_TO')); 
+=======
+        $mail->addAddress(getenv('SMTP_TO'));
+>>>>>>> 13b195f1cb3b8fe04d67f7e02ac356ed636c7468
 
         $mail->isHTML(true);
         $mail->Subject = "Nova mensagem de contato de $name";
