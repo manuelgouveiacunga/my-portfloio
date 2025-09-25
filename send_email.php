@@ -17,21 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = getenv('SMTP_USER'); 
-<<<<<<< HEAD
-        $mail->Password = getenv('SMTP_PASS'); 
-=======
-        $mail->Password = getenv('SMTP_PASS');
->>>>>>> 13b195f1cb3b8fe04d67f7e02ac356ed636c7468
+        $mail->Username = getenv('SMTP_USER') ?: "jonathamarielson@gmail.com";
+        $mail->Password = getenv('SMTP_PASS'); // cria no Render
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         $mail->setFrom($email, $name);
-<<<<<<< HEAD
-        $mail->addAddress(getenv('SMTP_TO')); 
-=======
-        $mail->addAddress(getenv('SMTP_TO'));
->>>>>>> 13b195f1cb3b8fe04d67f7e02ac356ed636c7468
+        $mail->addAddress("jonathamarielson@gmail.com");
 
         $mail->isHTML(true);
         $mail->Subject = "Nova mensagem de contato de $name";
@@ -44,11 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->AltBody = "Nome: $name\nEmail: $email\nMensagem:\n$message";
 
         $mail->send();
-        echo "<script>alert('Mensagem enviada com sucesso!'); window.location.href = 'index.html';</script>";
+        echo "<script>alert('Mensagem enviada com sucesso por email!'); window.location.href = 'index.html';</script>";
     } catch (Exception $e) {
         echo "<script>alert('Erro ao enviar: {$mail->ErrorInfo}'); window.location.href = 'index.html';</script>";
     }
 } else {
     echo "<script>alert('Acesso inválido.'); window.location.href = 'index.html';</script>";
 }
-?>

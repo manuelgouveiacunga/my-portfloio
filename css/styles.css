@@ -25,7 +25,7 @@
 }
 .project-card {
     transition: transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(159, 41, 41, 0.1);
+    box-shadow: 2px 4px 6px rgba(242, 242, 242, 0.1);
 }
 
 .project-card:hover {

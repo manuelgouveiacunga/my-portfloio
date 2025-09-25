@@ -65,6 +65,7 @@
                         <span class="badge bg-secondary text-white">TailwindCSS</span>
                         <span class="badge bg-dark text-white">Bootstrap</span>
                         <span class="badge bg-danger text-white">Git</span>
+                        <span class="badge bg-primary text-white">Metodologias Ágeis</span>
                     </div>
                 </div>
             </div>
@@ -91,7 +92,7 @@
                 <div class="col-md-8 text-center">
                     <p class="lead mb-5">Interessado em trabalhar juntos? Entre em contato!</p>
                     <div class="d-flex justify-content-center mb-4">
-                        <a href="https://outlook.live.com/mail/0/" class="contact-icon">
+                        <a href="mailto:jonathamarielson@gmail.com" class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/manuel-gouveia-cunga-943a62332/" class="contact-icon">
@@ -103,15 +104,18 @@
                     </div>
                     <form id="contactForm" action="send_email.php" method="POST">
                         <div class="mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Seu Nome" required>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Seu Nome" required>
                         </div>
                         <div class="mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Seu Email" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Seu Email" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn btn-primary">Enviar por Email</button>
+                            <button type="button" id="sendWhatsApp" class="btn btn-success">Enviar pelo WhatsApp</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -130,5 +134,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@ const projects = [
         title: "MEU PORTFÓLIO",
         description: "Aplicação web para exibir meus projetos e habilidades.",
         technologies: ["HTML", "CSS", "JavaScript", "PHP"],
-        link: "https://github.com/manuelgouveiacunga/my-portfloio"
+        link: "https://meus-projectos-p9pn.onrender.com/"
     },
     {
         title: "GESTÃO DE TAREFAS",
@@ -37,7 +37,6 @@ function loadProjects() {
         const projectHTML = `
             <div class="col-md-4 mb-4">
                 <div class="card project-card">
-                    <img src="${project.image}" class="card-img-top" alt="${project.title}">
                     <div class="card-body">
                         <h5 class="card-title">${project.title}</h5>
                         <p class="card-text">${project.description}</p>
@@ -46,7 +45,7 @@ function loadProjects() {
                                 `<span class="skill-badge">${tech}</span>`
                             ).join('')}
                         </div>
-                        <a href="${project.link}" class="btn btn-primary">Ver Projeto</a>
+                        <a href="${project.link}" class="btn btn-primary" target="_blank">Ver Projeto</a>
                     </div>
                 </div>
             </div>
@@ -54,6 +53,23 @@ function loadProjects() {
         container.innerHTML += projectHTML;
     });
 }
+
+document.getElementById("sendWhatsApp").addEventListener("click", function () {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+        alert("Por favor, preencha todos os campos antes de enviar pelo WhatsApp.");
+        return;
+    }
+
+    const phoneNumber = "244926329731"; // <-- teu número de WhatsApp sem "+"
+    const text = `Olá, meu nome é ${name}.\nEmail: ${email}\nMensagem: ${message}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, "_blank");
+});
 
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
