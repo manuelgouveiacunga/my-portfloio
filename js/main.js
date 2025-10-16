@@ -15,7 +15,7 @@ const projects = [
         title: "CONTROLO DE FINANÇAS",
         description: "Aplicação web para controlar despesas e receitas.",
         technologies: ["HTML", "TailwindCss", "JavaScript", "React"],
-        link: "https://github.com/manuelgouveiacunga/finance-control"
+        link: "https://finance-control-o9s6.onrender.com/"
     },
     {
         title: "PERGUNTAS FREQUENTES",
@@ -29,6 +29,12 @@ const projects = [
         technologies: ["React", "Next.js", "JavaScript"],
         link: "https://github.com/manuelgouveiacunga/nextjs-dashboard"
     },
+    {
+        title: "NGOLAVOZ",
+        description: "Aplicação web angolana que transforma texto em voz.",
+        technologies: ["HTML", "CSS", "JavaScript"],
+        link: "https://manuelgouveiacunga.github.io/ngolavoz/"
+    },
 ];
 
 function loadProjects() {
@@ -41,9 +47,9 @@ function loadProjects() {
                         <h5 class="card-title">${project.title}</h5>
                         <p class="card-text">${project.description}</p>
                         <div class="mb-3">
-                            ${project.technologies.map(tech => 
-                                `<span class="skill-badge">${tech}</span>`
-                            ).join('')}
+                            ${project.technologies.map(tech =>
+            `<span class="skill-badge">${tech}</span>`
+        ).join('')}
                         </div>
                         <a href="${project.link}" class="btn btn-primary" target="_blank">Ver Projeto</a>
                     </div>
@@ -64,7 +70,7 @@ document.getElementById("sendWhatsApp").addEventListener("click", function () {
         return;
     }
 
-    const phoneNumber = "244926329731"; // <-- teu número de WhatsApp sem "+"
+    const phoneNumber = "244926329731";
     const text = `Olá, meu nome é ${name}.\nEmail: ${email}\nMensagem: ${message}`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
 
@@ -72,7 +78,7 @@ document.getElementById("sendWhatsApp").addEventListener("click", function () {
 });
 
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
     alert('Mensagem enviada com sucesso!');
     this.reset();
